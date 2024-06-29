@@ -23,11 +23,10 @@ password = 'test!23'
 
 # Create a connection to the database
 try:
-    cnxn = pyodbc.connect(f"DRIVER={{SQL Server}};SERVER={'PSL\\SQLEXPRESS'};DATABASE={'kafka'};UID={'sa'};PWD={'test!23'}")
+    cnxn = pyodbc.connect(f"DRIVER={{SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}")
 except pyodbc.Error as e:
     print(f"Error connecting to database: {e}")
     raise
-
 
 try:
     # Define a function to process messages from the Kafka topic
@@ -43,26 +42,30 @@ try:
             # Insert data into the appropriate table based on the event type
             if event_type == 'shipment_arrived':
                 # Insert into Shipments table
-                cursor.execute("INSERT INTO Shipments (ShipmentID, CreatedAt) VALUES (?, GETDATE())", data['shipment_id'])
+                cursor.execute("INSERT INTO Shipments (CreatedAt) VALUES (GETDATE())")
+                shipment_id = cursor.execute("SELECT SCOPE_IDENTITY()").fetchone()[0]
                 # Insert into ShipmentItems table
                 for item in data['items']:
-                    cursor.execute("INSERT INTO ShipmentItems (ShipmentID, ItemID, Quantity) VALUES (?,?,?)", data['shipment_id'], item['item_id'], item['quantity'])
+                    cursor.execute("INSERT INTO ShipmentItems (ShipmentID, ItemID, Quantity) VALUES (?,?,?)", shipment_id, item['item_id'], item['quantity'])
             elif event_type == 'item_stored':
                 # Insert into ItemStorageLocations table
                 cursor.execute("INSERT INTO ItemStorageLocations (ItemID, Location) VALUES (?,?)", data['item_id'], data['location'])
             elif event_type.startswith('shipment_shipped'):
                 # Insert into Shipments table
-                cursor.execute("INSERT INTO Shipments (ShipmentID, CreatedAt) VALUES (?, GETDATE())", data['shipment_id'])
+                cursor.execute("INSERT INTO Shipments (CreatedAt) VALUES (GETDATE())")
+                shipment_id = cursor.execute("SELECT SCOPE_IDENTITY()").fetchone()[0]
                 # Insert into ShipmentItems table
                 for item in data['items']:
-                    cursor.execute("INSERT INTO ShipmentItems (ShipmentID, ItemID, Quantity) VALUES (?,?,?)", data['shipment_id'], item['item_id'], item['quantity'])
+                    cursor.execute("INSERT INTO ShipmentItems (ShipmentID, ItemID, Quantity) VALUES (?,?,?)", shipment_id, item['item_id'], item['quantity'])
 
             # Commit the transaction
             cnxn.commit()
         except KeyError as e:
-            print(f"Error processing message: {e}")
+            print(f"Error processing message (KeyError): {e}")
         except pyodbc.Error as e:
-            print(f"Error executing SQL query: {e}")
+            print(f"Error executing SQL query (pyodbc.Error): {e}")
+        except Exception as e:
+            print(f"Unexpected error processing message: {e}")
 
     # Consume messages from the Kafka topic
     for message in consumer:
