@@ -16,24 +16,26 @@ except Exception as e:
     raise
 
 # Microsoft SQL Server connection settings
-server = 'PSL/SQLEXPRESS'
+server = 'PSL\\SQLEXPRESS'
 database = 'kafka'
 username = 'sa'
 password = 'test!23'
 
 # Create a connection to the database
 try:
-    cnxn = pyodbc.connect(f"DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={'PSL/SQLEXPRESS'};DATABASE={'kafka'};UID={'sa'};PWD={'test!23'}")
+    cnxn = pyodbc.connect(f"DRIVER={{SQL Server}};SERVER={'PSL\\SQLEXPRESS'};DATABASE={'kafka'};UID={'sa'};PWD={'test!23'}")
 except pyodbc.Error as e:
     print(f"Error connecting to database: {e}")
     raise
+
 
 try:
     # Define a function to process messages from the Kafka topic
     def process_message(message):
         try:
-            event_type = message.value['event_type']
-            data = message.value['data']
+            message_value = json.loads(message.value.decode('utf-8'))
+            event_type = message_value['event_type']
+            data = message_value['data']
 
             # Create a cursor object
             cursor = cnxn.cursor()
@@ -44,16 +46,16 @@ try:
                 cursor.execute("INSERT INTO Shipments (ShipmentID, CreatedAt) VALUES (?, GETDATE())", data['shipment_id'])
                 # Insert into ShipmentItems table
                 for item in data['items']:
-                    cursor.execute("INSERT INTO ShipmentItems (ShipmentID, ItemID, Quantity) VALUES (?, ?, ?)", data['shipment_id'], item['item_id'], item['quantity'])
+                    cursor.execute("INSERT INTO ShipmentItems (ShipmentID, ItemID, Quantity) VALUES (?,?,?)", data['shipment_id'], item['item_id'], item['quantity'])
             elif event_type == 'item_stored':
                 # Insert into ItemStorageLocations table
-                cursor.execute("INSERT INTO ItemStorageLocations (ItemID, Location) VALUES (?, ?)", data['item_id'], data['location'])
+                cursor.execute("INSERT INTO ItemStorageLocations (ItemID, Location) VALUES (?,?)", data['item_id'], data['location'])
             elif event_type.startswith('shipment_shipped'):
                 # Insert into Shipments table
                 cursor.execute("INSERT INTO Shipments (ShipmentID, CreatedAt) VALUES (?, GETDATE())", data['shipment_id'])
                 # Insert into ShipmentItems table
                 for item in data['items']:
-                    cursor.execute("INSERT INTO ShipmentItems (ShipmentID, ItemID, Quantity) VALUES (?, ?, ?)", data['shipment_id'], item['item_id'], item['quantity'])
+                    cursor.execute("INSERT INTO ShipmentItems (ShipmentID, ItemID, Quantity) VALUES (?,?,?)", data['shipment_id'], item['item_id'], item['quantity'])
 
             # Commit the transaction
             cnxn.commit()
