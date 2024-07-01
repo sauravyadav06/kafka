@@ -1,6 +1,7 @@
 import json
 from kafka import KafkaConsumer
 import pyodbc
+import time
 
 # Kafka consumer configuration
 bootstrap_servers = 'localhost:9092'
@@ -28,19 +29,21 @@ except pyodbc.Error as e:
     print(f"Error connecting to database: {e}")
     raise
 
-try:
-    # Define a function to process messages from the Kafka topic
-    def process_message(message):
-        try:
+buffer = []  # buffer to store messages
+buffer_size = 100  # buffer size (adjust to your needs)
+insert_interval = 120  # insert interval in seconds (adjust to your needs)
+
+last_insert_time = time.time()
+
+def insert_buffer_into_db():
+    try:
+        cursor = cnxn.cursor()
+        for message in buffer:
             message_value = json.loads(message.value.decode('utf-8'))
             event_type = message_value['event_type']
             data = message_value['data']
 
-            # Create a cursor object
-            cursor = cnxn.cursor()
-
-            # Insert data into the appropriate table based on the event type
-            if event_type == 'shipment_arrived':
+            if event_type == 'hipment_arrived':
                 # Insert into Shipments table
                 cursor.execute("INSERT INTO Shipments (CreatedAt) VALUES (GETDATE())")
                 shipment_id = cursor.execute("SELECT SCOPE_IDENTITY()").fetchone()[0]
@@ -57,17 +60,22 @@ try:
                 # Insert into ShipmentItems table
                 for item in data['items']:
                     cursor.execute("INSERT INTO ShipmentItems (ShipmentID, ItemID, Quantity) VALUES (?,?,?)", shipment_id, item['item_id'], item['quantity'])
+        cnxn.commit()
+    except pyodbc.Error as e:
+        print(f"Error executing SQL query (pyodbc.Error): {e}")
+    except Exception as e:
+        print(f"Unexpected error processing message: {e}")
 
-            # Commit the transaction
-            cnxn.commit()
-        except KeyError as e:
-            print(f"Error processing message (KeyError): {e}")
-        except pyodbc.Error as e:
-            print(f"Error executing SQL query (pyodbc.Error): {e}")
-        except Exception as e:
-            print(f"Unexpected error processing message: {e}")
+def process_message(message):
+    global last_insert_time  # 
+    buffer.append(message)
 
-    # Consume messages from the Kafka topic
+    if len(buffer) >= buffer_size or time.time() - last_insert_time >= insert_interval:
+        insert_buffer_into_db()
+        buffer.clear()
+        last_insert_time = time.time()
+
+try:
     for message in consumer:
         process_message(message)
 finally:
