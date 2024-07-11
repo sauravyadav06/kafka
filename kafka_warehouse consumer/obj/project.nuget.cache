@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "+lfuR6bI82g=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\DEEPTESH PSL\\OneDrive\\Desktop\\kafka_warehouse consumer\\kafka_warehouse consumer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DEEPTESH PSL\\.nuget\\packages\\confluent.kafka\\1.8.2\\confluent.kafka.1.8.2.nupkg.sha512",
+    "C:\\Users\\DEEPTESH PSL\\.nuget\\packages\\librdkafka.redist\\1.8.2\\librdkafka.redist.1.8.2.nupkg.sha512",
+    "C:\\Users\\DEEPTESH PSL\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\DEEPTESH PSL\\.nuget\\packages\\system.memory\\4.5.0\\system.memory.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
