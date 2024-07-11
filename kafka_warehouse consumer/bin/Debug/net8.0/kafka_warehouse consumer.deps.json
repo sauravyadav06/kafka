@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "kafka_warehouse consumer/1.0.0": {
+        "runtime": {
+          "kafka_warehouse consumer.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "kafka_warehouse consumer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

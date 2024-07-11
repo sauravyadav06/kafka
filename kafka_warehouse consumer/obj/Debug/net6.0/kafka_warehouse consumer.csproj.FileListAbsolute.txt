@@ -1,0 +1,40 @@
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\kafka_warehouse consumer.exe
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\kafka_warehouse consumer.deps.json
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\kafka_warehouse consumer.runtimeconfig.json
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\kafka_warehouse consumer.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\kafka_warehouse consumer.pdb
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\Confluent.Kafka.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\linux-arm64\native\librdkafka.so
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\linux-x64\native\alpine-librdkafka.so
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\linux-x64\native\centos6-librdkafka.so
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\linux-x64\native\centos7-librdkafka.so
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\linux-x64\native\librdkafka.so
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\osx-x64\native\librdkafka.dylib
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\win-x64\native\libcrypto-1_1-x64.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\win-x64\native\librdkafka.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\win-x64\native\librdkafkacpp.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\win-x64\native\libssl-1_1-x64.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\win-x64\native\msvcp140.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\win-x64\native\vcruntime140.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\win-x64\native\zlib1.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\win-x64\native\zstd.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\win-x86\native\libcrypto-1_1.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\win-x86\native\librdkafka.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\win-x86\native\librdkafkacpp.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\win-x86\native\libssl-1_1.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\win-x86\native\msvcp140.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\win-x86\native\vcruntime140.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\win-x86\native\zlib1.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\bin\Debug\net6.0\runtimes\win-x86\native\zstd.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\obj\Debug\net6.0\kafka_warehouse consumer.csproj.AssemblyReference.cache
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\obj\Debug\net6.0\kafka_warehouse consumer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\obj\Debug\net6.0\kafka_warehouse consumer.AssemblyInfoInputs.cache
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\obj\Debug\net6.0\kafka_warehouse consumer.AssemblyInfo.cs
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\obj\Debug\net6.0\kafka_warehouse consumer.csproj.CoreCompileInputs.cache
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\obj\Debug\net6.0\kafka_wa.3A8ACE35.Up2Date
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\obj\Debug\net6.0\kafka_warehouse consumer.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\obj\Debug\net6.0\refint\kafka_warehouse consumer.dll
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\obj\Debug\net6.0\kafka_warehouse consumer.pdb
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\obj\Debug\net6.0\kafka_warehouse consumer.genruntimeconfig.cache
+C:\Users\DEEPTESH PSL\OneDrive\Desktop\kafka_warehouse consumer\obj\Debug\net6.0\ref\kafka_warehouse consumer.dll
